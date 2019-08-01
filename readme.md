@@ -8,6 +8,8 @@ It also uses [Vue.js](https://vuejs.org/) with [Apollo Vue](https://vue-apollo.n
 
 The first module to be developed will be Purchasing.  More information can be found at the Wiki by [Purchasing](https://github.com/SteveIreland/POSbyRD/wiki/Purchasing)
 
+The next module to be developed will be Accounts Receivable.
+
 
 ## Contributing
 
