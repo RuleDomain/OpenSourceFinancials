@@ -1,6 +1,6 @@
 ## About POSbyRD
 
-Point of Sale by Rule Domain is a Laravel based extension to OpenSourcePOS hosted at https://github.com/opensourcepos/opensourcepos
+Point of Sale by Rule Domain is an open source Laravel based extension to OpenSourcePOS hosted at https://github.com/opensourcepos/opensourcepos
 
 The first module to be developed will be Purchasing.  More information can be found at the Wiki by [Purchasing](https://github.com/SteveIreland/POSbyRD/wiki/Purchasing)
 
