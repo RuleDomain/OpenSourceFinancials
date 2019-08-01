@@ -12,4 +12,5 @@ Contributions are not being accepted at this time.  But thanks for being interes
 
 ## License
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The POSbyRD is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
