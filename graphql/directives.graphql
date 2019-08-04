@@ -1,0 +1,172 @@
+directive @scalar(
+    """
+    Reference to a class that extends `\GraphQL\Type\Definition\ScalarType`.
+    """
+    class: String!
+) on SCALAR
+
+
+"""
+Query multiple entries as a paginated list.
+"""
+directive @paginate(
+    """
+    Which pagination style to use.
+    Allowed values: paginator, connection.
+    """
+    type: String = "paginator"
+
+    """
+    Specify the class name of the model to use.
+    This is only needed when the default model resolution does not work.
+    """
+    model: String
+
+    """
+    Point to a function that provides a Query Builder instance.
+    This replaces the use of a model.
+    """
+    builder: String
+
+    """
+    Apply scopes to the underlying query.
+    """
+    scopes: [String!]
+
+    """
+    Overwrite the paginate_max_count setting value to limit the
+    amount of items that a user can request per page.
+    """
+    maxCount: Int
+
+    """
+    Use a default value for the amount of returned items
+    in case the client does not request it explicitly
+    """
+    defaultCount: Int
+) on FIELD_DEFINITION
+
+
+directive @find(
+    """
+    Specify the class name of the model to use.
+    This is only needed when the default model resolution does not work.
+    """
+    model: String
+
+    """
+    Apply scopes to the underlying query.
+    """
+    scopes: [String!]
+) on FIELD_DEFINITION
+
+
+directive @eq(
+    """
+    Specify the database column to compare.
+    Only required if database column has a different name than the attribute in your schema.
+    """
+    key: String
+) on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
+
+directive @hasOne(
+    """
+    Specify the relationship method name in the model class,
+    if it is named different from the field in the schema.
+    """
+    relation: String
+
+    """
+    Apply scopes to the underlying query.
+    """
+    scopes: [String!]
+) on FIELD_DEFINITION
+
+
+directive @hasMany(
+    """
+    Specify the default quantity of elements to be returned.
+    """
+    defaultCount: Int
+
+    """
+    Specify the maximum quantity of elements to be returned.
+    """
+    maxCount: Int
+
+    """
+    Specify the relationship method name in the model class,
+    if it is named different from the field in the schema.
+    """
+    relation: String
+
+    """
+    Apply scopes to the underlying query.
+    """
+    scopes: [String!]
+) on FIELD_DEFINITION
+
+
+directive @belongsTo(
+    """
+    Specify the relationship method name in the model class,
+    if it is named different from the field in the schema.
+    """
+    relation: String
+
+    """
+    Apply scopes to the underlying query.
+    """
+    scopes: [String!]
+) on FIELD_DEFINITION
+
+
+directive @belongsToMany(
+    """
+    Which pagination style to use.
+    Allowed values: paginator, connection.
+    """
+    type: String = "paginator"
+
+    """
+    Specify the default quantity of elements to be returned.
+    """
+    defaultCount: Int
+
+    """
+    Specify the maximum quantity of elements to be returned.
+    """
+    maxCount: Int
+
+    """
+    Specify the relationship method name in the model class,
+    if it is named different from the field in the schema.
+    """
+    relation: String
+
+    """
+    Apply scopes to the underlying query.
+    """
+    scopes: [String!]
+
+    """
+    Specify a custom type that implements the Edge interface
+    to extend edge object.
+    """
+    edgeType: String
+) on FIELD_DEFINITION
+
+
+directive @all(
+    """
+    Specify the class name of the model to use.
+    This is only needed when the default model resolution does not work.
+    """
+    model: String
+
+    """
+    Apply scopes to the underlying query.
+    """
+    scopes: [String!]
+) on FIELD_DEFINITION

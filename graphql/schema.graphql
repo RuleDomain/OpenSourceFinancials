@@ -5,14 +5,75 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 type Query {
-    users: [User!]! @paginate(type: "paginator" model: "App\\User")
-    user(id: ID @eq): User @find(model: "App\\User")
+    itemsPaged: [Item!]! @paginate(type: "paginator" model: "App\\Models\\Items\\Item")
+    items(deleted: Boolean @eq): [Item] @all
+    item(item_id: ID @eq): Item @find
+    itemsNeedingReplenishment(supplier_id: Int @eq): [Item] @find
+
+    people: [Person] @all
+    person(person_id: ID @eq): Person @find
+
+    suppliers: [Supplier] @all
+    supplier(person_id: ID @eq): Supplier @find
+
+    taxCategories: [TaxCategory] @all
+    taxCategory(tax_category_id: ID @eq): TaxCategory @find
 }
 
-type User {
-    id: ID!
+type Item {
     name: String!
-    email: String!
-    created_at: DateTime!
-    updated_at: DateTime!
+    category: String
+    supplier: Supplier @hasOne
+    item_number: String
+    description: String
+    cost_price: Float
+    unit_price: Float
+    reorder_level: Float
+    receiving_quantity: Float
+    item_id: ID!
+    pic_filename: String
+    allow_alt_description: Boolean
+    is_serialized: Boolean
+    stock_type: Int
+    item_type: Int
+    deleted: Int
+    taxCategory: TaxCategory @hasOne
+    qty_per_pack: Boolean
+    pack_name: String
+    lowSellItem: Item! @hasOne
+    hsn_code: String
+}
+
+type Person {
+    first_name: String!
+    last_name: String!
+    gender: String
+    phone_number: String
+    email: String
+    address_1: String
+    address_2: String
+    city: String
+    state: String
+    zip: String
+    country: String
+    comments: String
+    person_id: ID!
+}
+
+type Supplier {
+    person_id: ID!
+    company_name: String
+    agency_name: String
+    account_number: String
+    tax_id: String
+    deleted: Boolean
+    category: Boolean
+    person: Person! @belongsTo
+}
+
+type TaxCategory {
+    tax_category_id: ID!
+    tax_category: String
+    tax_group_sequence: Int
+    deleted: Boolean
 }
