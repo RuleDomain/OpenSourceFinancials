@@ -13,7 +13,7 @@ type Query {
     people: [Person] @all
     person(person_id: ID @eq): Person @find
 
-    suppliers: [Supplier] @all
+    suppliers(deleted: Boolean @eq): [Supplier] @all
     supplier(person_id: ID @eq): Supplier @find
 
     taxCategories: [TaxCategory] @all

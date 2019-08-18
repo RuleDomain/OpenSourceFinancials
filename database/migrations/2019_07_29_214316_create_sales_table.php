@@ -12,6 +12,7 @@ class CreateSalesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('sales')) { return; }
 		Schema::create('sales', function(Blueprint $table)
 		{
 			$table->timestamp('sale_time')->default(DB::raw('CURRENT_TIMESTAMP'))->index('sale_time');

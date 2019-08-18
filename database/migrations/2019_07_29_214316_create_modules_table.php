@@ -12,6 +12,7 @@ class CreateModulesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('modules')) { return; }
 		Schema::create('modules', function(Blueprint $table)
 		{
 			$table->string('name_lang_key')->unique('name_lang_key');

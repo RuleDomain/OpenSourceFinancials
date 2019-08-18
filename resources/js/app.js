@@ -20,6 +20,16 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('suppliers-reordering', require('./components/SuppliersReordering.vue').default);
+
+import ApolloClient from "apollo-boost"
+import VueApollo from "vue-apollo"
+
+const apolloProvider = new VueApollo({
+    defaultClient: new ApolloClient({
+        uri: "http://opnsrcfin.test/graphql"
+    })
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +37,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.use(VueApollo);
+
 const app = new Vue({
     el: '#app',
+    apolloProvider,
 });

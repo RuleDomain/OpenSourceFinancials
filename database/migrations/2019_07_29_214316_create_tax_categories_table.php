@@ -12,6 +12,7 @@ class CreateTaxCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('tax_categories')) { return; }
 		Schema::create('tax_categories', function(Blueprint $table)
 		{
 			$table->integer('tax_category_id', true);

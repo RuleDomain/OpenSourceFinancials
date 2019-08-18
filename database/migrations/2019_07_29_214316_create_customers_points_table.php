@@ -12,6 +12,7 @@ class CreateCustomersPointsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('customers_points')) { return; }
 		Schema::create('customers_points', function(Blueprint $table)
 		{
 			$table->integer('id', true);

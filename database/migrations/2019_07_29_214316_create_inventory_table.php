@@ -12,6 +12,7 @@ class CreateInventoryTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('inventory')) { return; }
 		Schema::create('inventory', function(Blueprint $table)
 		{
 			$table->integer('trans_id', true);

@@ -12,6 +12,7 @@ class CreateSalesRewardPointsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('sales_reward_points')) { return; }
 		Schema::create('sales_reward_points', function(Blueprint $table)
 		{
 			$table->integer('id', true);

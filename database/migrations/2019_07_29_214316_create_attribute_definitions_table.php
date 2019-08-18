@@ -12,6 +12,7 @@ class CreateAttributeDefinitionsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('attribute_definitions')) { return; }
 		Schema::create('attribute_definitions', function(Blueprint $table)
 		{
 			$table->integer('definition_id', true);

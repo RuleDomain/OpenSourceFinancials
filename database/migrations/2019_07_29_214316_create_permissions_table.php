@@ -12,6 +12,7 @@ class CreatePermissionsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('permissions')) { return; }
 		Schema::create('permissions', function(Blueprint $table)
 		{
 			$table->string('permission_id')->primary();

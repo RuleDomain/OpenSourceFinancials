@@ -12,6 +12,7 @@ class CreateSessionsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('sessions')) { return; }
 		Schema::create('sessions', function(Blueprint $table)
 		{
 			$table->string('id', 40);

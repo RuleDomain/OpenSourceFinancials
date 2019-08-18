@@ -12,6 +12,7 @@ class CreatePeopleTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('people')) { return; }
 		Schema::create('people', function(Blueprint $table)
 		{
 			$table->string('first_name');

@@ -12,6 +12,7 @@ class CreateItemQuantitiesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('item_quantities')) { return; }
 		Schema::create('item_quantities', function(Blueprint $table)
 		{
 			$table->integer('item_id')->index('item_id');

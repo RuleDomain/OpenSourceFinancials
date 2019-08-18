@@ -12,6 +12,7 @@ class CreateSalesPaymentsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('sales_payments')) { return; }
 		Schema::create('sales_payments', function(Blueprint $table)
 		{
 			$table->integer('payment_id', true);

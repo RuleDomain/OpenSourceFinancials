@@ -12,6 +12,7 @@ class CreateEmployeesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('employees')) { return; }
 		Schema::create('employees', function(Blueprint $table)
 		{
 			$table->string('username')->unique('username');

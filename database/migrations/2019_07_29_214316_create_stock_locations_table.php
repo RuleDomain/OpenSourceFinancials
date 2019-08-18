@@ -12,6 +12,7 @@ class CreateStockLocationsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('stock_locations')) { return; }
 		Schema::create('stock_locations', function(Blueprint $table)
 		{
 			$table->integer('location_id', true);

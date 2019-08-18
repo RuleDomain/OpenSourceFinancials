@@ -12,6 +12,7 @@ class CreateSalesItemsTaxesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('sales_items_taxes')) { return; }
 		Schema::create('sales_items_taxes', function(Blueprint $table)
 		{
 			$table->integer('sale_id')->index('sale_id');

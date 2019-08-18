@@ -12,6 +12,7 @@ class CreateAttributeLinksTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('attribute_links')) { return; }
 		Schema::create('attribute_links', function(Blueprint $table)
 		{
 			$table->integer('attribute_id')->nullable()->index('attribute_id');

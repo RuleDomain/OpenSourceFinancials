@@ -12,6 +12,7 @@ class CreateGrantsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('grants')) { return; }
 		Schema::create('grants', function(Blueprint $table)
 		{
 			$table->string('permission_id');

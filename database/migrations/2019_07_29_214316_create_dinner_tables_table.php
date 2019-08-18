@@ -12,6 +12,7 @@ class CreateDinnerTablesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('dinner_tables')) { return; }
 		Schema::create('dinner_tables', function(Blueprint $table)
 		{
 			$table->integer('dinner_table_id', true);

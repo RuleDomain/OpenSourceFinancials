@@ -12,6 +12,7 @@ class CreateOsposAttributeValuesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('attribute_values')) { return; }
 		Schema::create('attribute_values', function(Blueprint $table)
 		{
 			$table->integer('attribute_id', true);

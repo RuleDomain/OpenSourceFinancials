@@ -12,6 +12,7 @@ class CreateReceivingsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('receivings')) { return; }
 		Schema::create('receivings', function(Blueprint $table)
 		{
 			$table->timestamp('receiving_time')->default(DB::raw('CURRENT_TIMESTAMP'))->index('receiving_time');

@@ -12,6 +12,7 @@ class CreateReceivingsItemsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('receivings_items')) { return; }
 		Schema::create('receivings_items', function(Blueprint $table)
 		{
 			$table->integer('receiving_id')->default(0);

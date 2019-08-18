@@ -12,6 +12,7 @@ class CreateCustomersPackagesTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('customers_packages')) { return; }
 		Schema::create('customers_packages', function(Blueprint $table)
 		{
 			$table->integer('package_id', true);

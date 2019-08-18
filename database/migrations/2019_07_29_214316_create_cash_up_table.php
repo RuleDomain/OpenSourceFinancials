@@ -12,6 +12,7 @@ class CreateCashUpTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('cash_up')) { return; }
 		Schema::create('cash_up', function(Blueprint $table)
 		{
 			$table->integer('cashup_id', true);

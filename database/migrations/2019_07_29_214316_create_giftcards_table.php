@@ -12,6 +12,7 @@ class CreateGiftcardsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('giftcards')) { return; }
 		Schema::create('giftcards', function(Blueprint $table)
 		{
 			$table->timestamp('record_time')->default(DB::raw('CURRENT_TIMESTAMP'));

@@ -12,6 +12,7 @@ class CreateSalesItemsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('sales_items')) { return; }
 		Schema::create('sales_items', function(Blueprint $table)
 		{
 			$table->integer('sale_id')->default(0)->index('sale_id');

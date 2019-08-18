@@ -12,6 +12,7 @@ class CreateTaxJurisdictionsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('tax_jurisdictions')) { return; }
 		Schema::create('tax_jurisdictions', function(Blueprint $table)
 		{
 			$table->integer('jurisdiction_id', true);

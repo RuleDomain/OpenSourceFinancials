@@ -12,6 +12,7 @@ class CreateItemKitsTable extends Migration {
 	 */
 	public function up()
 	{
+        if (Schema::hasTable('item_kits')) { return; }
 		Schema::create('item_kits', function(Blueprint $table)
 		{
 			$table->integer('item_kit_id', true);
