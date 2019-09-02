@@ -21,4 +21,15 @@ class Employee extends Model
     {
         return $this->password;
     }
+
+    public function getPersonName()
+    {
+        return "Person Name";
+//        return $this->person()->getPersonName();
+    }
+
+    public function person() {
+        return $this->belongsTo('\App\Models\Entities\Person', 'person_id', 'person_id');
+    }
+
 }

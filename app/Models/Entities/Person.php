@@ -10,4 +10,9 @@ class Person extends Model
     protected $primaryKey = 'person_id';
 
     protected $guarded = [];
+
+    public function getPersonName()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }

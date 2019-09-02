@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('suppliers-reordering', require('./components/SuppliersReordering.vue').default);
+Vue.component('first-top-navbar', require('./components/FirstTopNavbar.vue').default);
 
 import ApolloClient from "apollo-boost"
 import VueApollo from "vue-apollo"

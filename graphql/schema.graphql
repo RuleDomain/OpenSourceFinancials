@@ -5,6 +5,9 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 type Query {
+    employees(deleted: Boolean @eq): [Employee] @all
+    employee(person_id: ID @eq): Employee @find
+
     itemsPaged: [Item!]! @paginate(type: "paginator" model: "App\\Models\\Items\\Item")
     items(deleted: Boolean @eq): [Item] @all
     item(item_id: ID @eq): Item @find
@@ -18,6 +21,16 @@ type Query {
 
     taxCategories: [TaxCategory] @all
     taxCategory(tax_category_id: ID @eq): TaxCategory @find
+}
+
+type Employee {
+    username: String!
+    person_id: ID!
+    deleted: Boolean
+    hash_version: Int
+    language: String
+    language_code: String
+    person: Person! @belongsTo
 }
 
 type Item {

@@ -4,5 +4,14 @@
 // Variables
 @import 'variables';
 
+// Welcome page styling
+@import 'welcome';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Overrides
+
+.nav-separator {
+    padding:.5rem 0rem;
+}
